@@ -1,0 +1,115 @@
+// pages/create.tsx
+
+import React, { useState } from "react";
+import Router from "next/router";
+import {
+  VStack,
+  Heading,
+  Text,
+  Box,
+  Button,
+  RadioGroup,
+  Stack,
+  Radio,
+  Textarea,
+  FormControl,
+  FormLabel,
+  Input,
+  HStack,
+  FormErrorMessage,
+} from "@chakra-ui/react";
+
+type Post = {
+  title: string;
+  content: string;
+};
+
+const Draft: React.FC = () => {
+  // const [title, setTitle] = useState("");
+  // const [content, setContent] = useState("");
+  const [post, setPost] = useState<Post>({
+    title: "",
+    content: "",
+  });
+  const [isPublic, setIsPublic] = useState("public");
+  const submitData = async (e: React.SyntheticEvent) => {
+    e.preventDefault();
+
+    try {
+      // const body = { title, content };
+      await fetch("/api/post/publish", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(post),
+      });
+
+      await Router.push("/test");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  return (
+    <>
+      <Box mt={5}>
+        <FormControl isInvalid={!post.title}>
+          <VStack spacing={5}>
+            <FormLabel fontSize={30}>New Post</FormLabel>
+            {post.title === "" && (
+              <FormErrorMessage>Title is required</FormErrorMessage>
+            )}
+            <RadioGroup onChange={setIsPublic} value={isPublic}>
+              <HStack>
+                <Radio value="public">Public</Radio>
+                <Radio value="draft">Draft</Radio>
+              </HStack>
+            </RadioGroup>
+            <Input
+              sx={{ maxWidth: 1000 }}
+              id="title"
+              type="text"
+              autoFocus
+              onChange={(e) => setPost({ ...post, title: e.target.value })}
+              placeholder="Title"
+              value={post.title}
+            />
+            <Textarea
+              sx={{ maxWidth: 1000 }}
+              cols={50}
+              onChange={(e) => setPost({ ...post, content: e.target.value })}
+              placeholder="Content"
+              rows={8}
+              value={post.content}
+            />
+            <HStack spacing={10}>
+              <Button
+                disabled={!post.content || !post.title}
+                onClick={(e) => submitData(e)}
+                sx={{
+                  color: "white",
+                  bgColor: "teal.400",
+                  "&:hover": { bgColor: "teal.500" },
+                }}
+              >
+                Create
+              </Button>
+              <Button
+                className="back"
+                onClick={() => Router.push("/")}
+                sx={{
+                  color: "white",
+                  bgColor: "gray.500",
+                  "&:hover": { bgColor: "gray.600" },
+                }}
+              >
+                Cancel
+              </Button>
+            </HStack>
+          </VStack>
+        </FormControl>
+      </Box>
+    </>
+  );
+};
+
+export default Draft;
