@@ -30,7 +30,7 @@ const PageTransition = () => {
       text: "予約の手軽さを重視し、ログインをせずに予約登録が可能。",
       src: customer.src,
       alt: "customer",
-      link: "/testCompany/reserver/",
+      link: "/sampleStore/reserver/",
     },
   ];
   return (

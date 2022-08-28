@@ -9,10 +9,8 @@ import { ToastContainer } from "react-toastify";
 // import my File
 import Header2 from "../../templates/Header/Header3";
 import { useLogin } from "../../../hooks/firebase/user/useSign";
-import ResetPass from "../../atoms/Sign/ResetPassword";
 import Login from "../../atoms/Sign/Login";
 import LoginButton from "../../atoms/Sign/LoginButton";
-import Footer from "../Footer/Footer";
 import Title_15 from "../../atoms/Text/Title_15";
 
 const LoginPage_Teacher = () => {
@@ -58,7 +56,7 @@ const LoginPage_Teacher = () => {
                   fontSize={15}
                   textTitle={
                     <>
-                      Email : aaa@aaa.com
+                      Email : staff@test.example
                       <br />
                       Password : 123123123
                     </>
@@ -95,15 +93,12 @@ const LoginPage_Teacher = () => {
                   }
                 />
                 <LoginButton />
-                <Divider />
-                <ResetPass />
               </Box>
             </Box>
           </Box>
         </Container>
       </ThemeProvider>
       <ToastContainer />
-      <Footer />
     </>
   );
 };

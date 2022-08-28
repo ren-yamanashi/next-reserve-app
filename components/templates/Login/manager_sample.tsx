@@ -5,12 +5,10 @@ import Box from "@mui/material/Box";
 
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Divider from "@mui/material/Divider";
 import { ToastContainer } from "react-toastify";
 // import my File
 import { useLogin } from "../../../hooks/firebase/user/useSign";
 import Header2 from "../../templates/Header/Header3";
-import ResetPass from "../../atoms/Sign/ResetPassword";
 import Login from "../../atoms/Sign/Login";
 import LoginButton from "../../atoms/Sign/LoginButton";
 import Footer from "../Footer/Footer";
@@ -58,9 +56,9 @@ const LoginPage_Manager = () => {
                   fontSize={15}
                   textTitle={
                     <>
-                      Email : pinokionigg@icloud.com
+                      Email : manager@test.example
                       <br />
-                      Password : 123456789
+                      Password : 123123123
                     </>
                   }
                   style={{
@@ -95,15 +93,12 @@ const LoginPage_Manager = () => {
                   }
                 />
                 <LoginButton />
-                <Divider />
-                <ResetPass />
               </Box>
             </Box>
           </Box>
         </Container>
       </ThemeProvider>
       <ToastContainer />
-      <Footer />
     </>
   );
 };

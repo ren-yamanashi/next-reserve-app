@@ -13,6 +13,7 @@ import Title_15 from "../../atoms/Text/Title_15";
 import { useJoin } from "../../../hooks/firebase/user/useSign";
 import Header2 from "../../templates/Header/Header3";
 import Already from "../../atoms/Sign/AlreadyUser";
+import Sample from "../../atoms/Sign/Sample"
 import SignInButton from "../../atoms/Sign/SignInButton";
 import { ToastContainer } from "react-toastify";
 import Footer from "../Footer/Footer";
@@ -45,6 +46,7 @@ const Join_compony = () => {
               alignItems: "center",
             }}
           >
+            <Sample />
             <Avatar sx={{ m: 1, bgcolor: "primary.main" }}>
               <LockIcon />
             </Avatar>
@@ -164,6 +166,7 @@ const Join_compony = () => {
               <SignInButton />
               <Divider />
               <Already linkTitle={"/login/store/"} />
+              
             </Box>
           </Box>
         </Container>

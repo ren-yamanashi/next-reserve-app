@@ -102,7 +102,7 @@ const SetStaffDataModal = (props) => {
                       />
                     </Box>
                   </Box>
-                  <Box display={"flex"} width={500} mb={3}>
+                  {/* <Box display={"flex"} width={500} mb={3}>
                     <Box
                       width={"40%"}
                       display={"flow-root"}
@@ -147,7 +147,7 @@ const SetStaffDataModal = (props) => {
                         )}
                       </Box>
                     </Box>
-                  </Box>
+                  </Box> */}
                   <Box textAlign="center">
                     <Button
                       type="submit"
